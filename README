@@ -14,13 +14,13 @@ branch will be updated by [git merge --no-ff] on specific chunchs of history of
 one of the topic branches. Topic branches can be updated by member users in any
 way the like.
 
-Please, add & commit only useful content. Remove from each commit object files,
-swap files, logs and every other non-essential content.
+  PLEASE, add & commit only useful content. Remove from each commit object
+  files, swap files, logs and every other non-essential content.
 
-Please, keep the history clean. I can fix it but I will suffer.
+  PLEASE, keep the history clean. I can fix it but I will suffer.
 
-Please, remember to pull (fetch & merge) from each remote branch above the one
-you are working on BEFORE pushing.
+  PLEASE, remember to pull (fetch & merge) from each remote branch above the one
+  you are working on BEFORE pushing.
 
 Do not fear. Everything in this section is written on the sand, it can be
 changed and I am here to answer many of your questions.
