@@ -22,6 +22,8 @@ way the like.
   PLEASE, remember to pull (fetch & merge) from each remote branch above the one
   you are working on BEFORE pushing.
 
+  PLEASE, when you push, do it on a TOPIC branch. DO NOT push devel or master.
+
 Do not fear. Everything in this section is written on the sand, it can be
 changed and I am here to answer many of your questions.
 
