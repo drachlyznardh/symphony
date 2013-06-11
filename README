@@ -7,6 +7,13 @@ I – <drachlyznardh@roundhousecode.com> – am personally working on this
 repository in order to maintain its history as clean as possible. To do that, I
 spend time every night invoking the Machine Spirit.
 
+Although the final layout will change eventually, right now this (remote)
+repository is populated with a number of branches with a hierarchical structure.
+The [master] branch will move by fast-forward only based on [devel]. The [devel]
+branch will be updated by [git merge --no-ff] on specific chunchs of history of
+one of the topic branches. Topic branches can be updated by member users in any
+way the like.
+
 Do not fear. Everything in this section is written on the sand, it can be
 changed and I am here to answer many of your questions.
 
