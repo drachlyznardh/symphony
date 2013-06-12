@@ -1,0 +1,14 @@
+Variabili interne: 
+Classi: Upper Camel Case
+Metodi: Lower Camel Case
+Membri: Lower Camel Case
+Costanti: ALL CAPS
+Enum: Upper Camel Case, values are ALL CAPS
+namespace: short, all lower case
+
+Comments:
+Comments in doxygen style for all classes and all public members and methods, in the .hpp
+Random comments in the code to help clarifying stuff.
+
+Each class should be defined in its own .hpp file, with its methods implemented in its own .cpp file.
+The headers for a class C should include only the superclasses of C and any class that is contained (not pointed) by C. All the other classes should be forward declared and eventually included in the .cpp file.
