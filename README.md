@@ -58,6 +58,12 @@ here on this list.
 List of FEATURE branches
 ------------------------
 
-The *buildsystem* branch is dedicated to CMake & CMake stuff. Its development
+All the following *features* have been included in **devel**.
+
+- (This list is empty)
+
+All the folliwing *features* are currently being evaluated.
+
+- The *buildsystem* branch is dedicated to CMake & CMake stuff. Its development
 will focus on CMakeLists.txt files, CMake tuning and related issues.
 
