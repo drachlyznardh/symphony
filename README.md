@@ -1,8 +1,13 @@
+
+Symphony of Pew Pew
+===================
+
 This is the README for <[***Symphony of Pew Pew***]>, a simple game developed by
 <[***TDB Games***®]> for the LULZ.
 
-Internal
-========
+### Disclaimer [Devel] ###
+You are currently on branch **devel**. All this stuff is written for internal
+purposes, only for developers.
 
 I – <drachlyznardh@roundhousecode.com> – am personally working on this
 repository in order to maintain its history as clean as possible. To do that, I
