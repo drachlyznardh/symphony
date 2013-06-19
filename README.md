@@ -24,7 +24,7 @@ Actually, the current model structure is this:
 - *devel* is the branch for all the stable features;
 - *ftr-&lt;name&gt;* branches are used to submit features;
 
-
+Here's a list of **PLEASE do** and **PLEASE do not**:
 
 - PLEASE, add & commit only useful content. Remove from each commit object
   files, swap files, logs and every other non-essential content.
@@ -40,15 +40,23 @@ Actually, the current model structure is this:
 Do not fear. Everything in this section is written on the sand, it can be
 changed and I am here to answer many of your questions.
 
-About TOPIC branches
---------------------
-
-As I – <drachlyznardh@roundhousecode.com> – already mentioned in the GIT guide,
-topic branches are long-running branches that focus on a specific task. Use the
-following section on list and describe the topic branch you introduce.
-
-List of TOPIC branches
+About FEATURE branches
 ----------------------
+
+> As I – <drachlyznardh@roundhousecode.com> – already mentioned in the GIT guide,
+topic branches are long-running branches that focus on a specific task.
+
+Actually, that guide was completely rewritten. There **will not** be any other
+long-running branches other than *master* and *devel*; each *feature* branch
+shall be push, evaluated and then either accepted in *devel* or discarded.
+
+> Use the following section on list and describe the topic branch you introduce.
+
+Still, if you really need to say something about your *feature*, please do it
+here on this list.
+
+List of FEATURE branches
+------------------------
 
 The *buildsystem* branch is dedicated to CMake & CMake stuff. Its development
 will focus on CMakeLists.txt files, CMake tuning and related issues.
