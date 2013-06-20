@@ -69,6 +69,4 @@ All the following *features* have been included in **devel**.
 
 All the folliwing *features* are currently being evaluated.
 
-- The *buildsystem* branch is dedicated to CMake & CMake stuff. Its development
-will focus on CMakeLists.txt files, CMake tuning and related issues.
-
+- (This list is empty)
