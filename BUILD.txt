@@ -16,12 +16,14 @@ else; for simplicity, this example will be inside this folder.
 
 Now, you must choose a build type, either DEBUG or RELEASE (flags will change
 based on this choice). You must also specify the location of Polycode in the
-POLYCODE_BASE definition.
+POLYCODE_BASE definition; please specify an absolute path or you'll make CMake
+very sad.
 
 It's time to invoke CMake:
 
   cmake -DCMAKE_BUILD_TYPE=[Debug|Release] \
-		-DPOLYCODE_BASE=/path/to/Polycode/Release/<your platform>/Framework/
+		-DPOLYCODE_BASE=/path/to/Polycode/Release/<your platform>/Framework/ \
+		../
 
 CMake will generate a project for your preferred buildsystem. Run it to compile
 & link the executable.
