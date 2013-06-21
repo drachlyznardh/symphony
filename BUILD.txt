@@ -1,0 +1,35 @@
+
+How to build Symphony of Pew Pew
+================================
+
+Symphony of Pew Pew – SOPP from now on – depends on Polycode. Download and
+compile Polycode before you proceed. Then, get CMake.
+
+How to build the game
+---------------------
+
+Now, choose any folder you like to build SOPP; you can build it here or anywere
+else; for simplicity, this example will be inside this folder.
+
+  mkdir Build
+  cd Build
+
+Now, you must choose a build type, either DEBUG or RELEASE (flags will change
+based on this choice). You must also specify the location of Polycode in the
+POLYCODE_BASE definition.
+
+It's time to invoke CMake:
+
+  cmake -DCMAKE_BUILD_TYPE=[Debug|Release] \
+		-DPOLYCODE_BASE=/path/to/Polycode/Release/<your platform>/Framework/
+
+CMake will generate a project for your preferred buildsystem. Run it to compile
+& link the executable.
+
+How to get ready for distribution
+---------------------------------
+
+You shall find a single huge executable called sopp[.exe] and a folder named
+resources. For the time being, these two objects constitute the release; archive
+them and share.
+
