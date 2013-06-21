@@ -5,7 +5,8 @@ project(SymphonyOfPewPew CXX)
 
 include(utils.cmake)
 
-set(CMAKE_CXX_FLAGS "-Wall -std=c++11 -pedantic")
+set(CMAKE_CXX_FLAGS_DEBUG "-g -Wall -std=c++11 -pedantic")
+set(CMAKE_CXX_FLAGS_RELEASE "-std=c++11 -O3")
 
 ## Game resources must be copied ##
 file(COPY resources/ DESTINATION ${PROJECT_BINARY_DIR}/resources/)
