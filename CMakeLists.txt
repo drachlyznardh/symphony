@@ -35,6 +35,11 @@ include_directories("${POLYCODE_BASE}Modules/include")
 include_directories("${POLYCODE_BASE}Modules/Dependencies/include")
 include_directories("${POLYCODE_BASE}Modules/Dependencies/include/bullet")
 
+link_directories("${POLYCODE_BASE}Core/lib")
+link_directories("${POLYCODE_BASE}Core/Dependencies/lib")
+link_directories("${POLYCODE_BASE}Modules/lib")
+link_directories("${POLYCODE_BASE}Modules/Dependencies/lib")
+
 add_executable(sopp ${sopp_SRCS})
 target_link_libraries(sopp ${sopp_LIBS})
 
