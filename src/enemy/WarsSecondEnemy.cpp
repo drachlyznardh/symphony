@@ -11,7 +11,7 @@
 #include "../MissionManager.hpp"
 #include "../collision/HitWindow.hpp"
 using namespace tbd;
-WarsSecondEnemy::WarsSecondEnemy(MissionManager* mm) : Enemy(new SimpleSprite("enemy.png", 0.1), mm) {
+WarsSecondEnemy::WarsSecondEnemy(MissionManager* mm) : Enemy(new SimpleSprite(RESOURCE(enemy.png), 0.1), mm) {
     rotation = 90;
     x = 0.05 + xMargin;
     y = randomDouble(-0.4, 0.4);
@@ -24,7 +24,7 @@ void WarsSecondEnemy::Update(double elapsed) {
     currentwait -= elapsed;
     if (currentwait <= 0) {
         currentwait = period;
-        HomingMissile* sm = new HomingMissile(new SimpleSprite("missile2.png", 0.025), missionmanager);
+        HomingMissile* sm = new HomingMissile(new SimpleSprite(RESOURCE(missile2.png), 0.025), missionmanager);
         sm->copyPosition(this);
         sm->friendly = false;
         missionmanager->add(sm);

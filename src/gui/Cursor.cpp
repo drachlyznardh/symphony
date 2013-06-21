@@ -8,7 +8,7 @@
 #include "../graphics/SimpleSprite.hpp"
 #include "../Input.hpp"
 using namespace tbd;
-Cursor::Cursor(): DrawableEntity(new tbd::SimpleSprite("cursor.png",0.05)) {
+Cursor::Cursor(): DrawableEntity(new tbd::SimpleSprite(RESOURCE(cursor.png),0.05)) {
 }
 
 void Cursor::Update(double elapsed){

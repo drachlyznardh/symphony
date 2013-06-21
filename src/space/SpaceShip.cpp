@@ -50,7 +50,7 @@ void SpaceShip::Update(double elapsed) {
     waitingtime -= elapsed;
     if (waitingtime < 0 && Input::get()->isButton1()) {
         waitingtime = period;
-        SimpleMissile* sm = new SimpleMissile(new SimpleSprite("missile.png", 0.015), missionmanager);
+        SimpleMissile* sm = new SimpleMissile(new SimpleSprite(RESOURCE(missile.png), 0.015), missionmanager);
         sm->copyPosition(this);
         sm->aim(rotation);
         sm->skip(0.1);
