@@ -6,6 +6,7 @@ project(SymphonyOfPewPew CXX)
 include(utils.cmake)
 
 set(CMAKE_CXX_FLAGS "-Wall -std=c++11 -pedantic")
+file(COPY resources/ DESTINATION ${PROJECT_BINARY_DIR}/resources/)
 
 ## Options ##
 option(POLYCODE_BASE "Set URL for Polycode" OFF)
