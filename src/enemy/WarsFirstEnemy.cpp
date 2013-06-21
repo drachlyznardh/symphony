@@ -13,7 +13,7 @@
 #include "../space/SpaceShip.hpp"
 using namespace tbd;
 
-WarsFirstEnemy::WarsFirstEnemy(MissionManager* mm) : Enemy(new SimpleSprite("enemy.png", 0.1), mm) {
+WarsFirstEnemy::WarsFirstEnemy(MissionManager* mm) : Enemy(new SimpleSprite(RESOURCE(enemy.png), 0.1), mm) {
     rotation = 90;
     x = 0.05 + xMargin;
     y = randomDouble(-0.4, 0.4);
@@ -27,7 +27,7 @@ void WarsFirstEnemy::Update(double elapsed) {
     if (currentwait <= 0) {
         currentwait = period;
         
-        SimpleMissile* sm = new SimpleMissile(new SimpleSprite("missile.png", 0.025), missionmanager);
+        SimpleMissile* sm = new SimpleMissile(new SimpleSprite(RESOURCE(missile.png), 0.025), missionmanager);
         sm->copyPosition(this);
         sm->aim(missionmanager->spaceship->x, missionmanager->spaceship->y);
         sm->skip(0.03);

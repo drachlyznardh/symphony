@@ -6,6 +6,9 @@
 
 #ifndef SIMPLESPRITE_HPP
 #define	SIMPLESPRITE_HPP
+
+#define RESOURCE(x) "resources/" # x
+
 #include "Drawer.hpp"
 #include <string>
 namespace tbd {

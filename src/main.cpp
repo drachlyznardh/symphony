@@ -30,7 +30,7 @@ int main() {
     while(true) {
         MissionManager mm(core);
         
-        mm.setSpaceship(new SpaceShip(new SimpleSprite("starship.png", 0.15), &mm));
+        mm.setSpaceship(new SpaceShip(new SimpleSprite(RESOURCE(starship.png), 0.15), &mm));
         WarsFirstMission miss(&mm);
         miss.period=period;
         mm.setMission(&miss);
