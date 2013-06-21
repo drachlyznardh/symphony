@@ -22,14 +22,18 @@ if (NOT POLYCODE_BASE)
 		"This project depends on Polycode\n"
 		"Run cmake with -DPOLYCODE_BASE=<URL> to specify location\n"
 		"Please specify the location of Polycode Core\n"
-		"Should look like Polycode/Release/<platftorm>/Framework/Core"
+		"Should look like Polycode/Release/<platftorm>/Framework/"
 	)
 endif ()
 
 message("Using ${POLYCODE_BASE} as base for Polycode")
 
-include_directories("${POLYCODE_BASE}include")
-include_directories("${POLYCODE_BASE}Dependencies/include")
+include_directories("${POLYCODE_BASE}Core/include")
+include_directories("${POLYCODE_BASE}Core/Dependencies/include")
+include_directories("${POLYCODE_BASE}Core/Dependencies/include/AL")
+include_directories("${POLYCODE_BASE}Modules/include")
+include_directories("${POLYCODE_BASE}Modules/Dependencies/include")
+include_directories("${POLYCODE_BASE}Modules/Dependencies/include/bullet")
 
 add_executable(sopp ${sopp_SRCS})
 target_link_libraries(sopp ${sopp_LIBS})
