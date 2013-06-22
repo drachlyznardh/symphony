@@ -69,4 +69,6 @@ All the following *features* have been included in **devel**.
 
 All the folliwing *features* are currently being evaluated.
 
-- (This list is empty)
+- ftr-**buildsystem** adds a complete implementation of CMakeLists files for the
+  project, which is supposed to work everywhere; it also enables vSync in
+  POLYCODE_CORE in order to fix the flickering problem;
