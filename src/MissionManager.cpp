@@ -106,6 +106,10 @@ bool MissionManager::run() {
         }
         gui->Update(elapsed);
         toDelete.clear();
+		if(!Input::get()->isAlive()){
+			cleanup();
+			return false;
+		}
         if(mission->completed()){
             cleanup();
             return true;
