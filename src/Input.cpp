@@ -12,6 +12,7 @@ using namespace tbd;
 tbd::Input::Input() {
     up = down = left = right = 0.0;
     x = y = 0.0;
+	alive = true;
 }
 
 void tbd::Input::changeInput(Core* core) {
@@ -44,6 +45,10 @@ double tbd::Input::Left() {
 
 double tbd::Input::Right() {
     return right;
+}
+
+bool tbd::Input::isAlive() {
+	return alive;
 }
 
 bool tbd::Input::isButton1() {
@@ -79,6 +84,10 @@ void tbd::Input::handleEvent(Polycode::Event *e) {
                 case KEY_s:
                     down = 1.0;
                     break;
+				case KEY_ESCAPE:
+				case KEY_q:
+					alive = false;
+					break;
             }
             break;
         case InputEvent::EVENT_KEYUP:
@@ -99,6 +108,10 @@ void tbd::Input::handleEvent(Polycode::Event *e) {
                 case KEY_s:
                     down = 0.0;
                     break;
+				case KEY_ESCAPE:
+				case KEY_q:
+					alive = true;
+					break;
             }
             break;
         case InputEvent::EVENT_MOUSEMOVE:
