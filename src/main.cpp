@@ -34,7 +34,9 @@ int main() {
         WarsFirstMission miss(&mm);
         miss.period=period;
         mm.setMission(&miss);
-        if (mm.run()) {
+        bool res=mm.run();
+        cout<<"Destroyed "<<mm.stats.enemydestroyed<<" enemies in "<<mm.stats.runtime<<" seconds"<<endl;
+        if (res) {
             cout << "WE WON!!!" << endl;
         } else {
             cout << "WE LOST!!!" << endl;
