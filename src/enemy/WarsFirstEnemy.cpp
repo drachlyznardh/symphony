@@ -41,7 +41,9 @@ void WarsFirstEnemy::Update(double elapsed) {
 void WarsFirstEnemy::handleCollision(HitWindow* window,CollisionEntity* other){
     Missile* m;
     if(m=(dynamic_cast<Missile*> (other))){
-        if(m->friendly)
-            missionmanager->remove(this);
+        if(m->friendly){
+            alive=false;
+            missionmanager->remove(this);            
+        }
     }
 }
