@@ -57,6 +57,8 @@ void MissionManager::add(Enemy* enemy){
 }
 
 void MissionManager::remove(Enemy* enemy){
+    if(!enemy->alive)
+        stats.enemydestroyed++;
     enemies.erase(std::remove(enemies.begin(),enemies.end(),enemy),enemies.end());
     enemy->removeFromLayer();
     collisionmanager->remove(enemy);
@@ -91,6 +93,7 @@ bool MissionManager::run() {
     gui->Init();
     while(true){
         double elapsed=core->getElapsed();
+        stats.runtime+=elapsed;
         background->Update(elapsed);
         mission->Update(elapsed);
         spaceship->Update(elapsed);

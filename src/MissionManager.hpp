@@ -10,6 +10,7 @@
 #include <vector>
 #include <set>
 #include "Polycode.h"
+#include "mission/MissionStats.hpp"
 namespace tbd {
     //Forward declaration
     class Enemy;
@@ -70,6 +71,10 @@ namespace tbd {
          * Returns the number of live enemies in the world
          */
         int getNumberOfEnemies();
+        /**
+         * Contains all the stats of the mission
+         */
+        MissionStats stats;
         SpaceShip* spaceship;
         GUI* gui;
     private:

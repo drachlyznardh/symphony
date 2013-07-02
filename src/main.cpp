@@ -24,7 +24,7 @@ using namespace std;
  */
 int main() {
     PolycodeView* view = new PolycodeView("Pew Pew!");
-    Core* core = new POLYCODE_CORE(view, 1024, 768, false, true, 0, 0, 90, -1);
+    Core* core = new POLYCODE_CORE(view, 1024, 768, false, true, 0, 0, 90);
     core->enableMouse(false);
     double period=0.8;
     while(true) {
@@ -34,7 +34,9 @@ int main() {
         WarsFirstMission miss(&mm);
         miss.period=period;
         mm.setMission(&miss);
-        if (mm.run()) {
+        bool res=mm.run();
+        cout<<"Destroyed "<<mm.stats.enemydestroyed<<" enemies in "<<mm.stats.runtime<<" seconds"<<endl;
+        if (res) {
             cout << "WE WON!!!" << endl;
         } else {
             cout << "WE LOST!!!" << endl;

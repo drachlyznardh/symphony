@@ -1,0 +1,6 @@
+nbproject
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+*.o
+pewpew

@@ -17,6 +17,7 @@ namespace tbd {
     class Enemy : public CollisionEntity {
     public:
         virtual void Update(double elapsed)=0;
+        bool alive=true;
     protected:
         Enemy(Drawer* d,MissionManager* mm);
         MissionManager* missionmanager;
