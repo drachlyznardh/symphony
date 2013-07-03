@@ -50,6 +50,11 @@ namespace tbd {
          * @return 
          */
         bool isButton1();
+		/**
+		 * Does the game have to exit the main loop?
+		 * @return true for continue, false for exit
+		 */
+		bool isAlive();
         /**
          * @return X position of mouse
          */
@@ -65,6 +70,7 @@ namespace tbd {
         double x,y;
         int xres;
         int yres;
+		bool alive;
         void handleEvent(Polycode::Event *e);
     };
 }
