@@ -17,10 +17,12 @@ namespace tbd {
     class SpaceShip : public CollisionEntity {
     public:
         SpaceShip(Drawer* d,MissionManager* mm);
+        SpaceShip(Drawer* d);
         void Update(double elapsed);
         double speed=0.4;
         bool isAlive();
         void handleCollision(HitWindow* window,CollisionEntity* other);
+        void setMissionManager(MissionManager* mm);
     private:        
         MissionManager* missionmanager;
         const double period=0.2;

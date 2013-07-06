@@ -23,10 +23,12 @@ int MissionManager::getNumberOfEnemies(){
 }
 void MissionManager::setSpaceship(SpaceShip* s){
     spaceship=s;
+    s->setMissionManager(this);
 }
 
 void MissionManager::setMission(Mission* m){
     mission=m;
+    m->setMissionManager(this);
 }
 
 MissionManager::MissionManager(Core* c) : core(c) {

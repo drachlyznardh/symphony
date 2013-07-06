@@ -32,8 +32,9 @@ namespace tbd {
          * Instantiates and returns the background of the mission
          */       
         virtual Background* getBackground(Layer* l) = 0;
+        void setMissionManager(MissionManager* mm);
     protected:
-        Mission(MissionManager* mm);
+        Mission();
         MissionManager* missionmanager;
     };
 }

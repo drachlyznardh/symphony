@@ -26,13 +26,13 @@ int main() {
     PolycodeView* view = new PolycodeView("Pew Pew!");
     Core* core = new POLYCODE_CORE(view, 1024, 768, false, true, 0, 0, 90);
     core->enableMouse(false);
-    double period=0.8;
+    double period=2.0;
+    SpaceShip space(new SimpleSprite(RESOURCE(starship.png),0.15));
     while(true) {
         MissionManager mm(core);
-        
-        mm.setSpaceship(new SpaceShip(new SimpleSprite(RESOURCE(starship.png), 0.15), &mm));
-        WarsFirstMission miss(&mm);
+        WarsFirstMission miss;
         miss.period=period;
+        mm.setSpaceship(&space);
         mm.setMission(&miss);
         bool res=mm.run();
         cout<<"Destroyed "<<mm.stats.enemydestroyed<<" enemies in "<<mm.stats.runtime<<" seconds"<<endl;

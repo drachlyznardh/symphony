@@ -38,7 +38,7 @@ Background* WarsFirstMission::getBackground(Layer* l) {
     return new StarredBackground(l);
 }
 
-WarsFirstMission::WarsFirstMission(MissionManager* mm):Mission(mm) {
+WarsFirstMission::WarsFirstMission():Mission() {
     totalTime=0.0;
     wait=period;
 }

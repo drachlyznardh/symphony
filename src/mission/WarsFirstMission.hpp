@@ -21,7 +21,7 @@ namespace tbd {
         bool completed();
 
         Background* getBackground(Layer* l);
-        WarsFirstMission(MissionManager* mm);
+        WarsFirstMission();
         double period=1.0;
     private:
         double totalTime;

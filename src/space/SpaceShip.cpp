@@ -19,6 +19,14 @@ bool SpaceShip::isAlive() {
     return alive;
 }
 
+SpaceShip::SpaceShip(Drawer* d) : CollisionEntity(d) {
+    x = 0.0;
+    y = 0.0;
+    rotation = 0.0;
+    windows.push_back(new HitWindow(this, 0.05, 0.05));
+}
+
+
 SpaceShip::SpaceShip(Drawer* d, MissionManager* mm) : CollisionEntity(d), missionmanager(mm) {
     x = 0.0;
     y = 0.0;
@@ -69,4 +77,8 @@ void SpaceShip::handleCollision(HitWindow* window, CollisionEntity* other) {
     } else {
         alive=false;
     }
+}
+
+void SpaceShip::setMissionManager(MissionManager* mm){
+    missionmanager=mm;
 }

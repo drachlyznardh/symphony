@@ -8,6 +8,9 @@
 #include "../MissionManager.hpp"
 
 using namespace tbd;
-Mission::Mission(MissionManager* mm): missionmanager(mm) {
+Mission::Mission(){
 }
 
+void Mission::setMissionManager(MissionManager* mm){
+    missionmanager=mm;
+}
