@@ -1,14 +1,13 @@
-/* 
- * File:   HitWindow.cpp
- * Author: alessio
- * 
- */
-
 #include "HitWindow.hpp"
 #include "CollisionEntity.hpp"
 #include "../Utilities.hpp"
-#include <iostream>
 #include "PolyScreenShape.h"
+#include "../space/SpaceShip.hpp"
+#include "../core/SpaceShipCore.hpp"
+#include "../weapon/Weapon.hpp"
+#include <iostream> 
+#include <utility>
+
 using namespace tbd;
 using namespace std;
 
@@ -25,12 +24,32 @@ HitWindow::HitWindow(CollisionEntity* coll, double w, double h, double dx, doubl
         shape->setPosition(0, 0);
         addChild(shape);
     }
+    SpaceShipCore* s;
+    Weapon* we;
+    if (s = dynamic_cast<SpaceShipCore*> (myobject)) {
+        father = s->spaceship;
+    }
+
+    if (we = dynamic_cast<Weapon*> (myobject)) {
+        father = we->spaceship;
+    }
 }
 
 void HitWindow::Update() {
-    setRotation(myobject->rotation + drot);
-    double rad_angle = myobject->rotation * toRad;
+    double r, xx, yy;
+    if (!father) {
+        r = myobject->rotation;
+        xx = myobject->x;
+        yy = myobject->y;
+    } else {
+        r = myobject->rotation + father->rotation;
+        pair<double, double> p = myobject->computeTotalPosition(father);
+        xx = p.first;
+        yy = p.second;
+    }
+    setRotation(r + drot);
+    double rad_angle = r * toRad;
     double x = dx * cos(rad_angle) - dy * sin(rad_angle);
     double y = dx * sin(rad_angle) + dy * cos(rad_angle);
-    setPosition(myobject->x + x, myobject->y + y);
+    setPosition(xx + x, yy + y);
 }
