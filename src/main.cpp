@@ -13,10 +13,21 @@
 #include "Input.hpp"
 #include "MissionManager.hpp"
 #include "mission/WarsFirstMission.hpp"
+#include "core/SimpleCore.hpp"
+#include "weapon/StraightCannon.hpp"
 #include <iostream>
 using namespace tbd;
 using namespace Polycode;
 using namespace std;
+
+SpaceShip* buildSpaceShip(){
+    SpaceShip* space=new SpaceShip();
+    space->setCore(new SimpleCore());
+    space->setWeapon(new StraightCannon(),0);
+    space->setWeapon(new StraightCannon(),1);
+    space->assemble();
+    return space;
+}
 
 /** 
  * 
@@ -25,14 +36,14 @@ using namespace std;
 int main() {
     PolycodeView* view = new PolycodeView("Pew Pew!");
     Core* core = new POLYCODE_CORE(view, 1024, 768, false, true, 0, 0, 90);
-    core->enableMouse(false);
+    //core->enableMouse(false);
     double period=2.0;
-    SpaceShip space(new SimpleSprite(RESOURCE(starship.png),0.15));
+    SpaceShip* space=buildSpaceShip();
     while(true) {
         MissionManager mm(core);
         WarsFirstMission miss;
         miss.period=period;
-        mm.setSpaceship(&space);
+        mm.setSpaceship(space);
         mm.setMission(&miss);
         bool res=mm.run();
         cout<<"Destroyed "<<mm.stats.enemydestroyed<<" enemies in "<<mm.stats.runtime<<" seconds"<<endl;
