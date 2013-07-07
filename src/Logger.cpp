@@ -1,11 +1,6 @@
-/* 
- * File:   Logger.cpp
- * Author: alessio
- * 
- */
-
 #include "Logger.hpp"
 #include <iostream>
+
 tbd::Logger::Logger() {
     file.open("log.txt");
     min=LOG;

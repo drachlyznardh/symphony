@@ -1,14 +1,8 @@
-/* 
- * File:   Background.hpp
- * Author: alessio
- *
- */
-
 #ifndef BACKGROUND_HPP
 #define	BACKGROUND_HPP
 namespace tbd {
-    //Forward declaration
-    class Layer;
+    class Layer; //Forward declaration
+
     /**
      * Base class to draw stuff in the background.
      * It is non-interactive background, on a different layer.
@@ -21,11 +15,17 @@ namespace tbd {
          * @param elapsed milliseconds elapsed since last frame
          */
         virtual void Update(double elapsed) = 0;
-
-    private:
     protected:
+        /**
+         * Constructor of the Background class, does almost nothing
+         * @param l Layer that has been assigned to the Background
+         */
         Background(Layer* l);
+        /**
+         * Pointer to assigned layer
+         */
         Layer* layer;
+    private:
     };
 }
 

@@ -1,16 +1,12 @@
-/* 
- * File:   WarsSecondEnemy.cpp
- * Author: alessio
- * 
- */
-
 #include "WarsSecondEnemy.hpp"
 #include "../graphics/SimpleSprite.hpp"
 #include "../Utilities.hpp"
 #include "../missile/HomingMissile.hpp"
 #include "../MissionManager.hpp"
 #include "../collision/HitWindow.hpp"
+
 using namespace tbd;
+
 WarsSecondEnemy::WarsSecondEnemy(MissionManager* mm) : Enemy(new SimpleSprite(RESOURCE(enemy.png), 0.1), mm) {
     rotation = 90;
     x = 0.05 + xMargin;

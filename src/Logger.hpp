@@ -1,9 +1,3 @@
-/* 
- * File:   Logger.hpp
- * Author: alessio
- *
- */
-
 #ifndef LOGGER_HPP
 #define	LOGGER_HPP
 #include <string>

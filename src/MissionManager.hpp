@@ -1,9 +1,3 @@
-/* 
- * File:   MissionManager.hpp
- * Author: alessio
- *
- */
-
 #ifndef MISSIONMANAGER_HPP
 #define	MISSIONMANAGER_HPP
 
@@ -75,7 +69,13 @@ namespace tbd {
          * Contains all the stats of the mission
          */
         MissionStats stats;
+        /**
+         * Pointer to the spaceship
+         */
         SpaceShip* spaceship;
+        /**
+         * GUI to show while running
+         */
         GUI* gui;
     private:
         Mission* mission;

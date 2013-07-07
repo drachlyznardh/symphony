@@ -1,9 +1,3 @@
-/* 
- * File:   Input.cpp
- * Author: alessio
- * 
- */
-
 #include "Input.hpp"
 
 using namespace Polycode;

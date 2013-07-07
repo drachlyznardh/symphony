@@ -1,17 +1,12 @@
-/* 
- * File:   StarredBackground.cpp
- * Author: alessio
- * 
- */
-
 #include "StarredBackground.hpp"
 #include "StarEntity.hpp"
 #include "StarDrawer.hpp"
 #include "../Utilities.hpp"
 #include "../Layer.hpp"
+
 using namespace tbd;
 
-tbd::StarredBackground::StarredBackground(Layer* l): Background(l) {
+StarredBackground::StarredBackground(Layer* l): Background(l) {
     remaining=0.0;
     layer=l;
     for(int i=0;i<40;i++){
@@ -20,7 +15,7 @@ tbd::StarredBackground::StarredBackground(Layer* l): Background(l) {
     }
 }
 
-StarEntity* tbd::StarredBackground::addStar(){
+StarEntity* StarredBackground::addStar(){
     double size=randomDouble(0.005,0.02);
     StarEntity* se=new StarEntity(new StarDrawer(size),xMargin+0.04);
     stars.push_back(se);
@@ -28,7 +23,7 @@ StarEntity* tbd::StarredBackground::addStar(){
     return se;
 }
 
-void tbd::StarredBackground::Update(double elapsed){
+void StarredBackground::Update(double elapsed){
     remaining-=elapsed;
     if(remaining<=0){
         addStar();

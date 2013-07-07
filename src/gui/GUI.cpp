@@ -1,14 +1,9 @@
-/* 
- * File:   GUI.cpp
- * Author: alessio
- * 
- */
-
 #include "GUI.hpp"
 #include "../MissionManager.hpp"
 #include "../Layer.hpp"
 #include "../Input.hpp"
 #include "Cursor.hpp"
+
 using namespace tbd;
 
 GUI::GUI(MissionManager* mm) : missionmanager(mm){

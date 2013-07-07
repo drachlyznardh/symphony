@@ -1,16 +1,13 @@
-/* 
- * File:   HomingMissile.cpp
- * Author: alessio
- * 
- */
-
 #include "HomingMissile.hpp"
 #include "../Utilities.hpp"
 #include "../collision/HitWindow.hpp"
 #include "../space/SpaceShip.hpp"
+#include "../core/SpaceShipCore.hpp"
 #include "../enemy/Enemy.hpp"
 #include "../MissionManager.hpp"
 #include "../graphics/Drawer.hpp"
+#include "../weapon/Weapon.hpp"
+
 using namespace tbd;
 
 void HomingMissile::Update(double elapsed) {
@@ -29,6 +26,8 @@ void HomingMissile::Update(double elapsed) {
     rotation = fmod(rotation, 360);
     x += cos(rotation * toRad) * elapsed*speed;
     y += sin(rotation * toRad) * elapsed*speed;
+    if (isOutOfScreen(x, y, 0.2))
+        missionmanager->remove(this);
 }
 
 HomingMissile::HomingMissile(Drawer* d, MissionManager* mm) : Missile(d, mm) {
@@ -49,7 +48,7 @@ void HomingMissile::handleCollision(HitWindow* window,CollisionEntity* coll) {
                 missionmanager->remove(this);
             }
         } else {
-            if (dynamic_cast<SpaceShip*> (coll)) {
+            if (dynamic_cast<SpaceShipCore*> (coll) || dynamic_cast<Weapon*> (coll)) {
                 missionmanager->remove(this);
             }
         }

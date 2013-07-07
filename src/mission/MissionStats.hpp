@@ -1,10 +1,3 @@
-/* 
- * File:   MissionStats.hpp
- * Author: alessio
- *
- * Created on 30 giugno 2013, 10.46
- */
-
 #ifndef MISSIONSTATS_HPP
 #define	MISSIONSTATS_HPP
 namespace tbd {

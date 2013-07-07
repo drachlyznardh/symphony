@@ -1,13 +1,9 @@
-/* 
- * File:   Cursor.cpp
- * Author: alessio
- * 
- */
-
 #include "Cursor.hpp"
 #include "../graphics/SimpleSprite.hpp"
 #include "../Input.hpp"
+
 using namespace tbd;
+
 Cursor::Cursor(): DrawableEntity(new tbd::SimpleSprite(RESOURCE(cursor.png),0.05)) {
 }
 

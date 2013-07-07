@@ -1,9 +1,3 @@
-/* 
- * File:   Layer.hpp
- * Author: alessio
- *
- */
-
 #ifndef LAYER_HPP
 #define	LAYER_HPP
 #include <Polycode.h>
@@ -15,8 +9,19 @@ namespace tbd {
      */
     class Layer : public Polycode::Screen {
     public:
+        /**
+         * Constructor of the Layer
+         */
         Layer();
+        /**
+         * Adds an entity (and its drawer) to the layer
+         * @param de The Entity to add
+         */
         void addEntity(DrawableEntity* de);
+        /**
+         * Removes an entity (and its drawer) to the layer
+         * @param de The Entity to remove
+         */
         void removeEntity(DrawableEntity* de);
     private:
         

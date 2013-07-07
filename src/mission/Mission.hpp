@@ -1,9 +1,3 @@
-/* 
- * File:   Mission.hpp
- * Author: alessio
- *
- */
-
 #ifndef MISSION_HPP
 #define	MISSION_HPP
 #include "../background/Background.hpp"
@@ -32,9 +26,19 @@ namespace tbd {
          * Instantiates and returns the background of the mission
          */       
         virtual Background* getBackground(Layer* l) = 0;
+        /**
+         * Sets the missionmanager in which to run this mission
+         * @param mm The missionmanager that will run the mission
+         */
         void setMissionManager(MissionManager* mm);
     protected:
+        /**
+         * Constructor of the mission
+         */
         Mission();
+        /**
+         * The missionmanager that will run the mission
+         */
         MissionManager* missionmanager;
     };
 }

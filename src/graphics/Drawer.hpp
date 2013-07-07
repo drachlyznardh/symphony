@@ -1,9 +1,3 @@
-/* 
- * File:   Drawer.hpp
- * Author: alessio
- *
- */
-
 #ifndef DRAWER_HPP
 #define	DRAWER_HPP
 #include <Polycode.h>
@@ -16,8 +10,18 @@ namespace tbd {
  */
     class Drawer : public Polycode::ScreenEntity {
     public:
+        /**
+         * Simple constructor (does almost nothing)
+         */
         Drawer();
+        /**
+         * Entity paired with this Drawer
+         */
         tbd::DrawableEntity* myEntity;
+        /**
+         * Updates the position of the Drawer, to follow the paired Entity
+         */
+        virtual void Update();
     private:
 
     };
