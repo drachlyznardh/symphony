@@ -13,22 +13,28 @@ mklist(src_SRCS ${root}
 
 add_subdirectory(background)
 add_subdirectory(collision)
+add_subdirectory(core)
 add_subdirectory(enemy)
+add_subdirectory(expansion)
 add_subdirectory(graphics)
 add_subdirectory(gui)
 add_subdirectory(missile)
 add_subdirectory(mission)
 add_subdirectory(space)
+add_subdirectory(weapon)
 
 list(APPEND src_SRCS
 	${background_SRCS}
 	${collision_SRCS}
+	${core_SRCS}
 	${enemy_SRCS}
+	${expansion_SRCS}
 	${graphics_SRCS}
 	${gui_SRCS}
 	${missile_SRCS}
 	${mission_SRCS}
 	${space_SRCS}
+	${weapon_SRCS}
 )
 list(APPEND src_LIBS
 	rt dl pthread

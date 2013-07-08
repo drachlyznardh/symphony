@@ -1,6 +1,7 @@
 
 mklist(space_SRCS ${root}
 	SpaceShip.cpp
+	SpaceShipComponent.cpp
 )
 
 set(space_SRCS ${space_SRCS} PARENT_SCOPE)
