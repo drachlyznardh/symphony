@@ -1,3 +1,4 @@
+%namespace tbd
 %class-name ConsoleParser
 %parsefun-source ConsoleParser.cpp
 

@@ -1,3 +1,4 @@
+%namespace tbd
 %class-name ConsoleLexer
 %lex-source "ConsoleLexer.cpp"
 
