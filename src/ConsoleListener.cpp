@@ -9,7 +9,8 @@ ConsoleListener::ConsoleListener() {
 
     th = thread([this->messages]() {
 	string line;
-	while (cin >> line) {
+	while (true) {
+		getline(cin, line);
 	    lock_guard<mutex> guard(mymutex);
 	    this->messages->push(line);
 	}
