@@ -15,6 +15,7 @@ namespace tbd {
          * @param elapsed milliseconds elapsed since last frame
          */
         virtual void Update(double elapsed) = 0;
+		virtual ~Background();
     protected:
         /**
          * Constructor of the Background class, does almost nothing
