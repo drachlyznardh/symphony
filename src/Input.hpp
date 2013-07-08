@@ -49,6 +49,11 @@ namespace tbd {
 		 * @return true for continue, false for exit
 		 */
 		bool isAlive();
+		/**
+		 * Is the game running or paused?
+		 * @return true for running, false for pause
+		 */
+		bool isRunning();
         /**
          * @return X position of mouse
          */
@@ -65,6 +70,7 @@ namespace tbd {
         int xres;
         int yres;
 		bool alive;
+		bool running;
         void handleEvent(Polycode::Event *e);
     };
 }
