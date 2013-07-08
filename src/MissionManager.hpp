@@ -5,6 +5,8 @@
 #include <set>
 #include "Polycode.h"
 #include "mission/MissionStats.hpp"
+#include "ConsoleListener.hpp"
+
 namespace tbd {
     //Forward declaration
     class Enemy;
@@ -77,6 +79,10 @@ namespace tbd {
          * GUI to show while running
          */
         GUI* gui;
+        /**
+         * Listens for commands on the console
+         */
+        ConsoleListener cl;
     private:
         Mission* mission;
         Polycode::Core* core;

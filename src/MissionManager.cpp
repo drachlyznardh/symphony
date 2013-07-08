@@ -91,7 +91,7 @@ bool MissionManager::run() {
     gui->Init();
     while(true) {
         double elapsed=0;
-		if (Input::get()->isRunning())
+	if (Input::get()->isRunning()){
 			elapsed=core->getElapsed();
         stats.runtime+=elapsed;
         background->Update(elapsed);
@@ -118,6 +118,7 @@ bool MissionManager::run() {
             cleanup();
             return false;
         }
+	}
         if(!core->updateAndRender()){
             cleanup();
             return false;
