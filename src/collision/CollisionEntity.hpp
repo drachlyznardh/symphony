@@ -1,9 +1,3 @@
-/* 
- * File:   CollisionObject.hpp
- * Author: alessio
- *
- */
-
 #ifndef COLLISIONOBJECT_HPP
 #define	COLLISIONOBJECT_HPP
 #include <vector>
@@ -28,6 +22,10 @@ namespace tbd {
          * List of HitWindows
          */
         std::vector<HitWindow*> windows;
+        /**
+         * Constructor of the CollisionEntity
+         * @param d Drawer class assigned to this entity
+         */
         CollisionEntity(Drawer* d);
         virtual ~CollisionEntity();
     protected:

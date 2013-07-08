@@ -1,9 +1,3 @@
-/* 
- * File:   MyFirstEnemy.hpp
- * Author: alessio
- *
- */
-
 #ifndef MYFIRSTENEMY_HPP
 #define	MYFIRSTENEMY_HPP
 #include "Enemy.hpp"
@@ -13,6 +7,10 @@ namespace tbd {
      */
     class WarsFirstEnemy : public Enemy {
     public:
+        /**
+         * Constructor of this Enemy
+         * @param mm MissionManager in which to appear
+         */
         WarsFirstEnemy(MissionManager* mm);
         void Update(double elapsed);
         void handleCollision(HitWindow* window,CollisionEntity* other);

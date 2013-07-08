@@ -1,9 +1,3 @@
-/* 
- * File:   SpaceShip.cpp
- * Author: alessio
- * 
- */
-
 #include "SpaceShip.hpp"
 #include "../Input.hpp"
 #include "../MissionManager.hpp"
@@ -12,21 +6,32 @@
 #include "../graphics/SimpleSprite.hpp"
 #include "../Utilities.hpp"
 #include "../collision/HitWindow.hpp"
+#include "../core/SpaceShipCore.hpp"
+#include "../weapon/Weapon.hpp"
+#include "../expansion/Expansion.hpp"
+#include <cassert>
+
 using namespace tbd;
 using namespace std;
 
-bool SpaceShip::isAlive() {
-    return alive;
+void SpaceShip::addExpansion(Expansion* exp){
+    assert(core);
+    assert(expansions.size()<core->getExpansionsNumber());
+    expansions.push_back(exp);
 }
 
-SpaceShip::SpaceShip(Drawer* d, MissionManager* mm) : CollisionEntity(d), missionmanager(mm) {
+bool SpaceShip::isAlive() {
+    return core->getHP() > 0;
+}
+
+SpaceShip::SpaceShip() : DrawableEntity(new Drawer()) {
     x = 0.0;
     y = 0.0;
     rotation = 0.0;
-    windows.push_back(new HitWindow(this, 0.05, 0.05));
 }
 
 void SpaceShip::Update(double elapsed) {
+    double speed = core->getSpeed();
     double mov = speed*elapsed;
     y -= mov * Input::get()->Up();
     y += mov * Input::get()->Down();
@@ -46,27 +51,50 @@ void SpaceShip::Update(double elapsed) {
     mx = Input::get()->X();
     my = Input::get()->Y();
     rotation = getAngle(x, y, mx, my);
-
-    waitingtime -= elapsed;
-    if (waitingtime < 0 && Input::get()->isButton1()) {
-        waitingtime = period;
-        SimpleMissile* sm = new SimpleMissile(new SimpleSprite(RESOURCE(missile.png), 0.015), missionmanager);
-        sm->copyPosition(this);
-        sm->aim(rotation);
-        sm->skip(0.1);
-        sm->speed = 0.8;
-        sm->friendly = true;
-        missionmanager->add(sm);
-    }
+    core->Update(elapsed);
+    for (Weapon* w : weapons)
+        if (w)
+            w->Update(elapsed);
 
 }
 
-void SpaceShip::handleCollision(HitWindow* window, CollisionEntity* other) {
-    Missile* m;
-    if (m = dynamic_cast<Missile*> (other)) {
-        if (!m->friendly)
-            alive=false;
-    } else {
-        alive=false;
+void SpaceShip::setMissionManager(MissionManager* mm) {
+    missionmanager = mm;
+}
+
+void SpaceShip::setCore(SpaceShipCore* core) {
+    this->core = core;
+    this->core->setSpaceShip(this);
+    weapons.clear();
+    weapons.resize(core->hardpoints.size());
+}
+
+void SpaceShip::assemble() {
+    assert(core != 0);
+    core->engage();
+    mydrawer->addChild(core->mydrawer);
+    int totenergy = core->getEnergyPool();
+    for (int i = 0; i < weapons.size(); i++) {
+        Weapon* w = weapons[i];
+        if (w) {
+            totenergy -= w->getEnergy();
+            w->engage();
+            w->x = core->hardpoints[i].first;
+            w->y = core->hardpoints[i].second;
+            mydrawer->addChild(w->mydrawer);
+            collisions.push_back(w);
+        }
     }
+    for(Expansion* exp:expansions){
+        exp->engage();
+        totenergy-=exp->getEnergy();
+    }
+    collisions.push_back(core);
+    assert(totenergy >= 0);
+}
+
+void SpaceShip::setWeapon(Weapon* weapon, int hp) {
+    assert(core != 0 && hp >= 0 && hp < core->hardpoints.size());
+    weapons[hp] = weapon;
+    weapon->setSpaceShip(this);
 }

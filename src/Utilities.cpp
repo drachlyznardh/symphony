@@ -1,9 +1,3 @@
-/* 
- * File:   Random.cpp
- * Author: alessio
- * 
- */
-
 #include "Utilities.hpp"
 
 using namespace tbd;

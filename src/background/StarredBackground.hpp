@@ -17,6 +17,10 @@ namespace tbd {
  */
     class StarredBackground : public Background{
     public:
+        /**
+         * Constructor of the background
+         * @param l Layer of the background
+         */
         StarredBackground(Layer* l);
         void Update(double elapsed);
     private:

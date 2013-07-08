@@ -1,15 +1,11 @@
-/* 
- * File:   CollisionManager.cpp
- * Author: alessio
- * 
- */
-
 #include "CollisionManager.hpp"
 #include "CollisionEntity.hpp"
 #include <iostream>
 #include "HitWindow.hpp"
+
 using namespace tbd;
 using namespace Polycode;
+
 CollisionManager::CollisionManager() : PhysicsScreen(0.01, 60) {
     setNormalizedCoordinates(true,1.0);
     addEventListener(this, PhysicsScreenEvent::EVENT_NEW_SHAPE_COLLISION);

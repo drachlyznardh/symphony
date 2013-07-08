@@ -1,9 +1,3 @@
-/* 
- * File:   Input.hpp
- * Author: alessio
- *
- */
-
 #ifndef INPUT_HPP
 #define	INPUT_HPP
 #include <Polycode.h>

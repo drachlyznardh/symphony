@@ -1,9 +1,3 @@
-/* 
- * File:   MyFirstEnemy.cpp
- * Author: alessio
- * 
- */
-
 #include "WarsFirstEnemy.hpp"
 #include "../graphics/SimpleSprite.hpp"
 #include "../Utilities.hpp"
@@ -11,6 +5,7 @@
 #include "../MissionManager.hpp"
 #include "../collision/HitWindow.hpp"
 #include "../space/SpaceShip.hpp"
+
 using namespace tbd;
 
 WarsFirstEnemy::WarsFirstEnemy(MissionManager* mm) : Enemy(new SimpleSprite(RESOURCE(enemy.png), 0.1), mm) {

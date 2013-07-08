@@ -1,17 +1,10 @@
-/* 
- * File:   WarsFirstMission.cpp
- * Author: alessio
- * 
- * Created on 5 giugno 2013, 14.28
- */
-
 #include "WarsFirstMission.hpp"
 #include "../background/StarredBackground.hpp"
 #include "../enemy/WarsFirstEnemy.hpp"
 #include "../enemy/WarsSecondEnemy.hpp"
 #include "../MissionManager.hpp"
-using namespace tbd;
 
+using namespace tbd;
 
 void WarsFirstMission::Update(double elapsed) {
     totalTime+=elapsed;
@@ -38,7 +31,7 @@ Background* WarsFirstMission::getBackground(Layer* l) {
     return new StarredBackground(l);
 }
 
-WarsFirstMission::WarsFirstMission(MissionManager* mm):Mission(mm) {
+WarsFirstMission::WarsFirstMission():Mission() {
     totalTime=0.0;
     wait=period;
 }

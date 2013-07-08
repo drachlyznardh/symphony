@@ -1,12 +1,7 @@
-/* 
- * File:   StarEntity.hpp
- * Author: alessio
- *
- */
-
 #ifndef STARENTITY_HPP
 #define	STARENTITY_HPP
 #include "../DrawableEntity.hpp"
+
 namespace tbd {
     //Forward declaration
     class Drawer;
@@ -15,7 +10,16 @@ namespace tbd {
      */
     class StarEntity : public DrawableEntity{
     public:
+        /**
+         * Construct a new star
+         * @param d Drawer entity of the star
+         * @param px Starting X coordinate
+         */
         StarEntity(Drawer* d,double px);
+        /**
+         * 
+         * @param elapsed milliseconds elapsed since last frame
+         */
         void Update(double elapsed);
     private:
         const double maxspeed=2.0;

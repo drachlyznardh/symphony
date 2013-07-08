@@ -1,9 +1,3 @@
-/* 
- * File:   HomingMissile.hpp
- * Author: alessio
- *
- */
-
 #ifndef HOMINGMISSILE_HPP
 #define	HOMINGMISSILE_HPP
 #include "Missile.hpp"
@@ -18,6 +12,11 @@ namespace tbd {
     class HomingMissile : public Missile {
     public:
         void Update(double elapsed);
+        /**
+         * Constructor of the Missile
+         * @param d The paired Drawer class
+         * @param mm The missionmanager that contains this missile
+         */
         HomingMissile(Drawer* d,MissionManager* mm);
          void handleCollision(HitWindow* window,CollisionEntity* coll);
     private:

@@ -1,12 +1,8 @@
-/* 
- * File:   Layer.cpp
- * Author: alessio
- * 
- */
-
 #include "Layer.hpp"
 #include "DrawableEntity.hpp"
+
 using namespace tbd;
+
 Layer::Layer() : Screen(){
     setNormalizedCoordinates(true,1);
     

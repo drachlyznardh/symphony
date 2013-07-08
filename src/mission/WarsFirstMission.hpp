@@ -1,10 +1,3 @@
-/* 
- * File:   WarsFirstMission.hpp
- * Author: alessio
- *
- * Created on 5 giugno 2013, 14.28
- */
-
 #ifndef WARSFIRSTMISSION_HPP
 #define	WARSFIRSTMISSION_HPP
 #include "Mission.hpp"
@@ -21,7 +14,10 @@ namespace tbd {
         bool completed();
 
         Background* getBackground(Layer* l);
-        WarsFirstMission(MissionManager* mm);
+        WarsFirstMission();
+        /**
+         * Controls how often does a new enemy appear
+         */
         double period=1.0;
     private:
         double totalTime;

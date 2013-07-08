@@ -1,9 +1,3 @@
-/* 
- * File:   MissionManager.cpp
- * Author: alessio
- * 
- */
-
 #include <Polycode.h>
 #include "Layer.hpp"
 #include "background/Background.hpp"
@@ -15,6 +9,7 @@
 #include "Input.hpp"
 #include "collision/CollisionManager.hpp"
 #include "gui/GUI.hpp"
+
 using namespace Polycode;
 using namespace tbd;
 
@@ -23,10 +18,12 @@ int MissionManager::getNumberOfEnemies(){
 }
 void MissionManager::setSpaceship(SpaceShip* s){
     spaceship=s;
+    s->setMissionManager(this);
 }
 
 void MissionManager::setMission(Mission* m){
     mission=m;
+    m->setMissionManager(this);
 }
 
 MissionManager::MissionManager(Core* c) : core(c) {
@@ -87,7 +84,8 @@ bool MissionManager::run() {
     Ships = new Layer();
     Missiles = new Layer();
     Ships->addEntity(spaceship);
-    collisionmanager->add(spaceship);
+    for(CollisionEntity* ce:spaceship->collisions)
+        collisionmanager->add(ce);
     background=mission->getBackground(BackgroundLayer);
     Input::changeInput(core);
     gui->Init();

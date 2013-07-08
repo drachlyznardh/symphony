@@ -1,20 +1,18 @@
-/* 
- * File:   Missile.cpp
- * Author: alessio
- * 
- */
-
 #include "Missile.hpp"
 #include "../enemy/Enemy.hpp"
-#include "../space/SpaceShip.hpp"
+#include "../core/SpaceShipCore.hpp"
 #include "../MissionManager.hpp"
 #include "../graphics/Drawer.hpp"
+#include "../weapon/Weapon.hpp"
+#include "../space/SpaceShipComponent.hpp"
 #include <iostream>
+
 using namespace tbd;
 
 tbd::Missile::Missile(Drawer* d, MissionManager* mm): CollisionEntity(d),missionmanager(mm){
     
 }
+
 Missile::~Missile(){
     
 }
@@ -24,9 +22,10 @@ void Missile::handleCollision(HitWindow* window,CollisionEntity* coll){
             missionmanager->remove(this);
         }
     } else {
-        if (dynamic_cast<SpaceShip*> (coll)) {
-            missionmanager->remove(this);
+         SpaceShipComponent* ssc;
+        if (ssc=dynamic_cast<SpaceShipComponent*> (coll)) {
+                missionmanager->remove(this);
         }
-
+        
     }
 }

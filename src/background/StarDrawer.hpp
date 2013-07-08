@@ -13,7 +13,14 @@ namespace tbd {
  */
     class StarDrawer: public Drawer{
     public:
+        /**
+         * Creates a star
+         * @param height Diameter of the star
+         */
         StarDrawer(double height);
+        /**
+         * Moves the graphics entity to follow the actual star
+         */
         void Update();
     private:
 

@@ -1,9 +1,3 @@
-/* 
- * File:   Random.hpp
- * Author: alessio
- *
- */
-
 #ifndef RANDOM_HPP
 #define	RANDOM_HPP
 
@@ -27,7 +21,7 @@ namespace tbd {
     /**
      * Should we draw the Hit Windows (to debug stuff)
      */
-    const bool drawHitWindows = false;
+    const bool drawHitWindows = true;
     /**
      * Set seed for our random generator
      * @param seed 
@@ -59,6 +53,7 @@ namespace tbd {
      * Computes the angle from the source to the target
      */
     double getAngle(double sourceX,double sourceY, double targetX, double targetY);
+
 }
 #endif	/* RANDOM_HPP */
 

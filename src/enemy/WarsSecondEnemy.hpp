@@ -1,9 +1,3 @@
-/* 
- * File:   WarsSecondEnemy.hpp
- * Author: alessio
- *
- */
-
 #ifndef WARSSECONDENEMY_HPP
 #define	WARSSECONDENEMY_HPP
 #include "Enemy.hpp"
@@ -13,6 +7,10 @@ namespace tbd {
      */
     class WarsSecondEnemy : public Enemy {
     public:
+        /**
+         * Constructor of this Enemy
+         * @param mm MissionManager in which to appear
+         */
         WarsSecondEnemy(MissionManager* mm);
         void Update(double elapsed);
         void handleCollision(HitWindow* window,CollisionEntity* other);

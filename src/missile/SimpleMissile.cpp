@@ -1,9 +1,3 @@
-/* 
- * File:   SimpleMissile.cpp
- * Author: alessio
- * 
- */
-
 #include "SimpleMissile.hpp"
 #include "Missile.hpp"
 #include "../graphics/SimpleSprite.hpp"
@@ -12,6 +6,7 @@
 #include "../collision/HitWindow.hpp"
 #include <cmath>
 #include <iostream>
+
 using namespace tbd;
 
 SimpleMissile::SimpleMissile(Drawer* d, MissionManager* mm) : Missile(d, mm) {
