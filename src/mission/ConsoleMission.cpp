@@ -3,7 +3,11 @@
 #include "../MissionManager.hpp"
 #include "../ConsoleListener.hpp"
 
+#include <iostream>
+#include <string>
+
 using namespace tbd;
+using namespace std;
 
 ConsoleMission::ConsoleMission(){}
 
@@ -16,5 +20,10 @@ Background* ConsoleMission::getBackground(Layer* l) {
 }
 
 void ConsoleMission::Update(double elapsed)
-{}
+{
+	if (missionmanager->cl.hasMessage()) {
+		string msg = missionmanager->cl.getMessage();
+		cout << "Found [" << msg << "]" << endl;
+	}
+}
 
