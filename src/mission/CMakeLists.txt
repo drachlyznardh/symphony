@@ -1,5 +1,6 @@
 
 mklist(mission_SRCS ${root} 
+	ConsoleMission.cpp
 	Mission.cpp
 	WarsFirstMission.cpp
 )
