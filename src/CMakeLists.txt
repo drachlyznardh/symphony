@@ -2,6 +2,7 @@
 set(root ${sopp_ROOT})
 
 mklist(src_SRCS ${root}
+	ConsoleListener.cpp
 	DrawableEntity.cpp
 	Input.cpp
 	Layer.cpp

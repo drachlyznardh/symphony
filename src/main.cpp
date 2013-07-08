@@ -13,6 +13,7 @@
 #include "Input.hpp"
 #include "MissionManager.hpp"
 #include "mission/WarsFirstMission.hpp"
+#include "mission/ConsoleMission.hpp"
 #include "core/SimpleCore.hpp"
 #include "weapon/StraightCannon.hpp"
 #include <iostream>
@@ -39,10 +40,11 @@ int main() {
     //core->enableMouse(false);
     double period=2.0;
     SpaceShip* space=buildSpaceShip();
-    while(true) {
+    //while(true) {
         MissionManager mm(core);
-        WarsFirstMission miss;
-        miss.period=period;
+        //WarsFirstMission miss;
+		ConsoleMission miss;
+        //miss.period=period;
         mm.setSpaceship(space);
         mm.setMission(&miss);
         bool res=mm.run();
@@ -51,10 +53,10 @@ int main() {
             cout << "WE WON!!!" << endl;
         } else {
             cout << "WE LOST!!!" << endl;
-            break;
+            //break;
         }
         period/=1.5;
-    }
+    //}
     return 0;
 }
 
