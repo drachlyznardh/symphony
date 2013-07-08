@@ -123,5 +123,6 @@ bool MissionManager::run() {
             return false;
         }
     }
+	return false;
 }
 
