@@ -89,8 +89,10 @@ bool MissionManager::run() {
     background=mission->getBackground(BackgroundLayer);
     Input::changeInput(core);
     gui->Init();
-    while(true){
-        double elapsed=core->getElapsed();
+    while(true) {
+        double elapsed=0;
+		if (Input::get()->isRunning())
+			elapsed=core->getElapsed();
         stats.runtime+=elapsed;
         background->Update(elapsed);
         mission->Update(elapsed);
