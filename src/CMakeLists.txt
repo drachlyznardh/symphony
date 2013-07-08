@@ -13,6 +13,7 @@ mklist(src_SRCS ${root}
 
 add_subdirectory(background)
 add_subdirectory(collision)
+add_subdirectory(console)
 add_subdirectory(core)
 add_subdirectory(enemy)
 add_subdirectory(expansion)
@@ -26,6 +27,7 @@ add_subdirectory(weapon)
 list(APPEND src_SRCS
 	${background_SRCS}
 	${collision_SRCS}
+	${console_SRCS}
 	${core_SRCS}
 	${enemy_SRCS}
 	${expansion_SRCS}
