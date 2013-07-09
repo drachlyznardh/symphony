@@ -39,19 +39,13 @@ Command:
 ;
 
 target:
-	SHIP { currentTarget.name = "ship"; currentTarget.index = -1; }
+	SHIP { this->registerTarget("ship", -1); }
 |
-	ALL { currentTarget.name = "all"; currentTarget.index = -2; }
+	ALL { this->registerTarget("all", 2); }
 |
-	id {
-		currentTarget.name = $1;
-		currentTarget.index = 0;
-	}
+	id { this->registerTarget($1, 0); }
 |
-	id SHARP int {
-		currentTarget.name = $1;
-		currentTarget.index = $3;
-	}
+	id SHARP int { this->registerTarget($1, $3); }
 ;
 
 id: ID { $$ = d_scanner.matched(); };
