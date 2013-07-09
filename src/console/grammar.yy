@@ -10,8 +10,8 @@
 %token LBRACE RBRACE
 %token ID INT CHAR TEXT
 
-%token REGENE SHIP
-%token SUMMON TARGET
+%token REGENE SUMMON
+%token SHIP ALL
 
 %polymorphic INT: int; TEXT: std::string;
 

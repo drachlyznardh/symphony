@@ -11,10 +11,11 @@
 "regene" return ConsoleParser::REGENE;
 "ship" return ConsoleParser::SHIP;
 "summon" return ConsoleParser::SUMMON;
-"target" return ConsoleParser::TARGET;
+"all"		return ConsoleParser::ALL;
 
 "="	return ConsoleParser::EQUAL;
 ";"	return ConsoleParser::SEMICOLON;
+"#" return ConsoleParser::SHARP;
 
 "{"	return ConsoleParser::LBRACE;
 "}" return ConsoleParser::RBRACE;
