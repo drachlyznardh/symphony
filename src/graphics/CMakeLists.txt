@@ -2,6 +2,7 @@
 mklist(graphics_SRCS ${root}
 	Drawer.cpp
 	SimpleSprite.cpp
+	SimpleText.cpp
 )
 
 set(graphics_SRCS ${graphics_SRCS} PARENT_SCOPE) 
