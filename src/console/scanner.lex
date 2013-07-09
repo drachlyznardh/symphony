@@ -8,10 +8,13 @@
 
 [[:space:]]+ // ignoring whitespaces
 
-"regene" return ConsoleParser::REGENE;
-"ship" return ConsoleParser::SHIP;
-"summon" return ConsoleParser::SUMMON;
+"regene"	return ConsoleParser::REGENE;
+"summon"	return ConsoleParser::SUMMON;
+"remove"	return ConsoleParser::REMOVE;
+"ship"		return ConsoleParser::SHIP;
 "all"		return ConsoleParser::ALL;
+"load"		return ConsoleParser::LOAD;
+"clear"		return ConsoleParser::CLEAR;
 
 "="	return ConsoleParser::EQUAL;
 ";"	return ConsoleParser::SEMICOLON;
