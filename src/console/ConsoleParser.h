@@ -21,6 +21,8 @@ class ConsoleParser: public ConsoleParserBase
     public:
         int parse();
 
+		ConsoleParser(std::istream &in, std::ostream &out = std::cout);
+
     private:
         void error(char const *msg);    // called on (syntax) errors
         int lex();                      // returns the next token from the

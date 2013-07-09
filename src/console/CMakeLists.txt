@@ -2,6 +2,7 @@
 mklist(console_SRCS ${root}
 	ConsoleLexer.cpp
 	ConsoleParser.cpp
+	ConsoleExtra.cpp
 )
 
 set(console_SRCS ${console_SRCS} PARENT_SCOPE)
