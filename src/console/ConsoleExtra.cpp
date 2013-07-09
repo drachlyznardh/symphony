@@ -32,14 +32,14 @@ tbd::ConsoleCommand::ConsoleCommand (
 {}
 
 void
-tbd::ConsoleParser::registerType (
+tbd::ConsoleParser::recordType (
 	tbd::ConsoleCommandType const& type)
 {
 	this->currentType = type;
 }
 
 void
-tbd::ConsoleParser::registerTarget (
+tbd::ConsoleParser::recordTarget (
 	std::string const& name,
 	int const& index)
 {
@@ -48,7 +48,7 @@ tbd::ConsoleParser::registerTarget (
 }
 
 void
-tbd::ConsoleParser::registerCommand()
+tbd::ConsoleParser::recordCommand()
 {
 	this->commandList.push_back(ConsoleCommand(
 			this->currentType, this->currentTarget));

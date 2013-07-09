@@ -22,30 +22,30 @@
 
 InitialState: | CommandList;
 CommandList:
-	CommandList Command { this->registerCommand(); }
+	CommandList Command { this->recordCommand(); }
 |
-	Command { this->registerCommand(); }
+	Command { this->recordCommand(); }
 ;
 Command:
-	REGENE target { this->registerType(ConsoleCommandType::REGENE); }
+	REGENE target { this->recordType(ConsoleCommandType::REGENE); }
 |
-	SUMMON target { this->registerType(ConsoleCommandType::SUMMON); }
+	SUMMON target { this->recordType(ConsoleCommandType::SUMMON); }
 |
-	REMOVE target { this->registerType(ConsoleCommandType::REMOVE); }
+	REMOVE target { this->recordType(ConsoleCommandType::REMOVE); }
 |
-	LOAD text { this->registerType(ConsoleCommandType::LOAD); }
+	LOAD text { this->recordType(ConsoleCommandType::LOAD); }
 |
-	CLEAR { this->registerType(ConsoleCommandType::CLEAR); }
+	CLEAR { this->recordType(ConsoleCommandType::CLEAR); }
 ;
 
 target:
-	SHIP { this->registerTarget("ship", -1); }
+	SHIP { this->recordTarget("ship", -1); }
 |
-	ALL { this->registerTarget("all", 2); }
+	ALL { this->recordTarget("all", 2); }
 |
-	id { this->registerTarget($1, 0); }
+	id { this->recordTarget($1, 0); }
 |
-	id SHARP int { this->registerTarget($1, $3); }
+	id SHARP int { this->recordTarget($1, $3); }
 ;
 
 id: ID { $$ = d_scanner.matched(); };

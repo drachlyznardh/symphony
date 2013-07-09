@@ -39,9 +39,9 @@ class ConsoleParser: public ConsoleParserBase
         void nextToken();
         void print__();
 
-		void registerType(ConsoleCommandType const&);
-		void registerTarget(std::string const&, int const&);
-		void registerCommand();
+		void recordType(ConsoleCommandType const&);
+		void recordTarget(std::string const&, int const&);
+		void recordCommand();
 
 		std::vector<ConsoleCommand> commandList;
 		ConsoleTarget currentTarget;
