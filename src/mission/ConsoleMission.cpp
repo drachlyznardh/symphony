@@ -40,6 +40,10 @@ void ConsoleMission::Update(double elapsed)
 			case REGENE: this->regeneTarget(e.target); break;
 			case SUMMON: this->summonTarget(e.target); break;
 			case REMOVE: this->removeTarget(e.target); break;
+
+			case LOAD: this->load(e.target.name); break;
+			case CLEAR: this->clear(); break;
+
 			default: cout << "Bad type [" << e.type << "]";
 		}
 		commandList.clear();
@@ -63,4 +67,11 @@ void ConsoleMission::removeTarget (
 {
 	cout << "[Remove]" << endl;
 }
+
+void ConsoleMission::load (
+	std::string const& filename)
+{}
+
+void ConsoleMission::clear ()
+{}
 

@@ -19,6 +19,9 @@ namespace tbd {
 		void regeneTarget(ConsoleTarget const&);
 		void summonTarget(ConsoleTarget const&);
 		void removeTarget(ConsoleTarget const&);
+
+		void load(std::string const&);
+		void clear();
 	};
 }
 #endif // CONSOLEMISSION_HPP
