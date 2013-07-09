@@ -15,32 +15,46 @@
 
 %polymorphic INT: int; TEXT: std::string;
 
-%type <INT> INT value condition
-%type <TEXT> ID TEXT
+%type <INT> int value condition
+%type <TEXT> id text
 
 %%
 
 InitialState: | CommandList;
-CommandList: CommandList Command | Command;
+CommandList:
+	CommandList Command { this->registerCommand(); }
+|
+	Command { this->registerCommand(); }
+;
 Command:
-	REGENE target { std::cout << "[Regene]" << std::endl; }
+	REGENE target { this->registerType(ConsoleCommandType::REGENE); }
 |
-	SUMMON target { std::cout << "[Summoning]" << std::endl; }
+	SUMMON target { this->registerType(ConsoleCommandType::SUMMON); }
 |
-	REMOVE target { std::cout << "[Removing]" << std::endl; }
+	REMOVE target { this->registerType(ConsoleCommandType::REMOVE); }
 |
-	LOAD TEXT { std::cout << "[Load]" << std::endl; }
+	LOAD text { this->registerType(ConsoleCommandType::LOAD); }
 |
-	CLEAR { std::cout << "[Clear]" << std::endl; }
+	CLEAR { this->registerType(ConsoleCommandType::CLEAR); }
 ;
 
 target:
-	SHIP
+	SHIP { currentTarget.name = "ship"; currentTarget.index = -1; }
 |
-	ALL
+	ALL { currentTarget.name = "all"; currentTarget.index = -2; }
 |
-	ID
+	id {
+		currentTarget.name = $1;
+		currentTarget.index = 0;
+	}
 |
-	ID SHARP INT
+	id SHARP int {
+		currentTarget.name = $1;
+		currentTarget.index = $3;
+	}
 ;
+
+id: ID { $$ = d_scanner.matched(); };
+text: TEXT { $$ = d_scanner.matched(); };
+int: INT { $$ = std::stoll(d_scanner.matched()); };
 
