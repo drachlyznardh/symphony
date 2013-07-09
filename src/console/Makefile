@@ -8,6 +8,8 @@ OBJS   := $(SRCS:.cpp=.o)
 
 CXXFLAGS += -std=c++11 -Wall -pedantic
 
+all: $(LEXER) $(PARSER)
+
 $(APP): $(OBJS)
 	$(CXX) $^ -o $@
 
