@@ -28,11 +28,7 @@ void ConsoleMission::Update(double elapsed)
 		istringstream msgstream(msg);
 		ConsoleParser parser(msgstream, cout);
 
-		if (parser.parse()) {
-			cout << "Something bad" << endl;
-		} else {
-			commandList = parser.getCommandList();
-		}
+		if (parser.parse() == 0) commandList = parser.getCommandList();
 	}
 
 	if (commandList.size()) {
