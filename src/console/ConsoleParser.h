@@ -7,6 +7,8 @@
 #include "ConsoleParserbase.h"
 // $insert scanner.h
 #include "ConsoleLexer.h"
+#include "ConsoleExtra.hpp"
+#include <vector>
 
 // $insert namespace-open
 namespace tbd
@@ -21,6 +23,7 @@ class ConsoleParser: public ConsoleParserBase
     public:
         int parse();
 
+		std::vector<ConsoleCommand> getCommandList() const;
 		ConsoleParser(std::istream &in, std::ostream &out = std::cout);
 
     private:
@@ -35,6 +38,14 @@ class ConsoleParser: public ConsoleParserBase
         int lookup(bool recovery);
         void nextToken();
         void print__();
+
+		void registerType(ConsoleCommandType const&);
+		void registerTarget(std::string const&, int const&);
+		void registerCommand();
+
+		std::vector<ConsoleCommand> commandList;
+		ConsoleTarget currentTarget;
+		ConsoleCommandType currentType;
 };
 
 // $insert namespace-close
