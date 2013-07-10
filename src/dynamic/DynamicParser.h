@@ -37,6 +37,8 @@ class DynamicParser: public DynamicParserBase
         int lookup(bool recovery);
         void nextToken();
         void print__();
+
+		void includeFile(std::string const&);
 };
 
 // $insert namespace-close

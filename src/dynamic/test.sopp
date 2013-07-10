@@ -1,4 +1,6 @@
 // this is a test file
+include <empty.sopp>
+include "std.sopp"
 core lolCore {
 	hit: 12000;
 	hard: <0,0>, <0,1>;

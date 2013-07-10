@@ -1,0 +1,22 @@
+core Bazillion {
+	hit: 27000000000;
+	hard: <0,0>, <0,1>, <1,0>;
+	hard: <0,2>, <1,1>, <2,1>;
+	speed: 5;
+	energy 27000000000;
+	exp: 12;
+}
+
+weapon BazCannon {
+	projectile: explosive;
+	type: impact;
+	damage: 125000;
+	rate: 0.1;
+}
+
+enemy Bazillion {
+	core: Bazillion;
+	weapon: BazCannon;
+	weapon: BazCannon, BazCannon;
+	weapon: BazCannon, BazCannon, BazCannon;
+}

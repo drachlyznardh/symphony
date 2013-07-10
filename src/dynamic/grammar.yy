@@ -10,6 +10,7 @@
 %token LBRACE RBRACE
 %token ID INT CHAR TEXT
 
+%token INCLUDE
 %token REGENE SUMMON REMOVE LOAD CLEAR
 %token SHIP ALL
 
@@ -19,6 +20,23 @@
 %type <TEXT> id text
 
 %%
+
+TranslationUnit: | FirstOrderList;
+FirstOrderList:
+	FirstOrderElement FirstOrderList
+|
+	SecondOrderList
+;
+SecondOrderList: SecondOrderList SecondOrderElement | SecondOrderElement;
+
+FirstOrderElement:
+	INCLUDE text
+	{
+		std::cout << "Including [" << $2 << "]" << std::endl;
+		//this->includeFile($2);
+	}
+;
+SecondOrderElement: Command;
 
 InitialState: | CommandList;
 CommandList:
