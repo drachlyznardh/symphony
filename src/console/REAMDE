@@ -1,0 +1,7 @@
+Questo branch è sperimentale e pieno di fuffa.
+
+Il parser legge da linea di comando e mette(rà) in atto i comandi nella missione
+in esecuzione. Il comando [load] caricherà cose in memoria e permetterà di fare
+esperimenti, [clear] svuoterà la memoria.
+
+I comandi [regene, summon, remove] faranno quel che faranno.
