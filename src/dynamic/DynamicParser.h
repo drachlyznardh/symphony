@@ -7,6 +7,7 @@
 #include "DynamicParserbase.h"
 // $insert scanner.h
 #include "DynamicLexer.h"
+#include <string>
 
 // $insert namespace-open
 namespace tbd
@@ -23,6 +24,9 @@ class DynamicParser: public DynamicParserBase
 
     private:
         void error(char const *msg);    // called on (syntax) errors
+		void error(std::string const& msg);
+		void warning(std::string const& msg);
+		void msg(std::string const& type, std::string const& msg);
         int lex();                      // returns the next token from the
                                         // lexical scanner. 
         void print();                   // use, e.g., d_token, d_loc

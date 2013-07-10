@@ -3,7 +3,7 @@ LEXER  := DynamicLexer.cpp
 PARSER := DynamicParser.cpp
 APP    := parser
 
-SRCS   := main.cpp $(LEXER) $(PARSER)
+SRCS   := main.cpp DynamicExtra.cpp $(LEXER) $(PARSER)
 OBJS   := $(SRCS:.cpp=.o)
 
 CXXFLAGS += -std=c++11 -Wall -pedantic

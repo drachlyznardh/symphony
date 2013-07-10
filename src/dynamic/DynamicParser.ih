@@ -11,7 +11,12 @@ namespace tbd
 
 inline void DynamicParser::error(char const *msg)
 {
-    std::cerr << msg << '\n';
+    this->msg("error", std::string(msg));
+}
+
+inline void DynamicParser::warning(std::string const& msg)
+{
+	this->msg("warning", msg);
 }
 
 // $insert lex
