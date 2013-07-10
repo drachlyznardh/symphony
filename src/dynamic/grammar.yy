@@ -5,16 +5,16 @@
 %scanner DynamicLexer.h
 %scanner-token-function lexer.lex()
 
-%token EQUAL SEMICOLON SHARP
+%token EQUAL SEMICOLON COLON COMMA SHARP
 %token IF ELSE
-%token LBRACE RBRACE
-%token ID INT CHAR TEXT
+%token LBRACE RBRACE LANGLE RANGLE
+%token ID INT FLOAT CHAR TEXT
 
-%token INCLUDE
 %token REGENE SUMMON REMOVE LOAD CLEAR
+%token CORE WEAPON ENEMY
 %token SHIP ALL
 
-%polymorphic INT: int; TEXT: std::string;
+%polymorphic INT: long long int; FLOAT: long double; TEXT: std::string;
 
 %type <INT> int value condition
 %type <TEXT> id text
@@ -30,20 +30,20 @@ FirstOrderList:
 SecondOrderList: SecondOrderList SecondOrderElement | SecondOrderElement;
 
 FirstOrderElement:
-	INCLUDE text
-	{
-		std::cout << "Including [" << $2 << "]" << std::endl;
-		//this->includeFile($2);
-	}
+	FirstOrderId id FirstOrderGroup
 ;
 SecondOrderElement: Command;
 
-InitialState: | CommandList;
-CommandList:
-	CommandList Command
+FirstOrderId: CORE | WEAPON | ENEMY;
+FirstOrderGroup: LBRACE MemberDefList RBRACE;
+
+MemberDefList: | MemberDefList MemberDef;
+MemberDef:
+	id COLON rValueList SEMICOLON
 |
-	Command
+	FirstOrderId COLON rValueList SEMICOLON
 ;
+
 Command:
 	REGENE target
 |
@@ -66,7 +66,13 @@ target:
 	id SHARP int
 ;
 
+rValueList: rValueList COMMA rValue | rValue;
+rValue: id | text | int | float | tuple;
+
+tuple: LANGLE rValueList RANGLE;
+
 id: ID { $$ = d_scanner.matched(); };
 text: TEXT { $$ = d_scanner.matched(); };
 int: INT { $$ = std::stoll(d_scanner.matched()); };
+float: FLOAT { $$ = std::stold(d_scanner.matched()); };
 

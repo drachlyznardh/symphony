@@ -44,16 +44,21 @@
 "="	return DynamicParser::EQUAL;
 ":"	return DynamicParser::COLON;
 ";"	return DynamicParser::SEMICOLON;
+"," return DynamicParser::COMMA;
 "#" return DynamicParser::SHARP;
 
 "{"	return DynamicParser::LBRACE;
 "}" return DynamicParser::RBRACE;
+"<"	return DynamicParser::LANGLE;
+">"	return DynamicParser::RANGLE;
 
 "if"   return DynamicParser::IF;
 "else" return DynamicParser::ELSE;
 
+0									return DynamicParser::INT;
 [0-9]+								return DynamicParser::INT;
 [[:alpha:]][[:alpha:][:digit:]]*	return DynamicParser::ID;
+[[:digit:]]+\.[[:digit:]]*			return DynamicParser::FLOAT;
 
 "\""		{ more(); begin(StartCondition__::TEXT); }
 <TEXT>"\""	{ begin(StartCondition__::INITIAL); return DynamicParser::TEXT; }
