@@ -3,7 +3,7 @@ core Bazillion {
 	hard: <0,0>, <0,1>, <1,0>;
 	hard: <0,2>, <1,1>, <2,1>;
 	speed: 5;
-	energy 27000000000;
+	energy: 27000000000;
 	exp: 12;
 }
 
@@ -20,3 +20,4 @@ enemy Bazillion {
 	weapon: BazCannon, BazCannon;
 	weapon: BazCannon, BazCannon, BazCannon;
 }
+

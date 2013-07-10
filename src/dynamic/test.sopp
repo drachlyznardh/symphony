@@ -16,11 +16,8 @@ weapon lolWeapon {
 	rate: 0.22;
 }
 
-spaceship p1 {
-	
-}
-
 enemy lolEnemy {
 	core: lolCore;
 	weapon: lolWeapon, lolWeapon;
 }
+
