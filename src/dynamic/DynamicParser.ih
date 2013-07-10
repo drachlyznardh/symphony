@@ -11,7 +11,7 @@ namespace tbd
 
 inline void DynamicParser::error(char const *msg)
 {
-	this->msg("error", std::string(msg));
+	this->msg("error", std::string(msg) + " near [" + d_scanner.matched() + "]");
 }
 
 inline void DynamicParser::warning(std::string const& msg)
