@@ -37,4 +37,4 @@ scanner.clean:
 .PHONY: clean parser.clean scanner.clean
 
 run: $(APP)
-	./$(APP) < /tmp/test
+	./$(APP) < test.sopp

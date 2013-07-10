@@ -1,0 +1,24 @@
+// this is a test file
+core lolCore {
+	hit: 12000;
+	hard: <0,0>, <0,1>;
+	speed: 5000;
+	energy: 7;
+	exp: 3;
+}
+
+weapon lolWeapon {
+	projectile: shot;
+	type: laser;
+	damage: 25;
+	rate: 0.22;
+}
+
+spaceship p1 {
+	
+}
+
+enemy lolEnemy {
+	core: lolCore;
+	weapon: lolWeapon, lolWeapon;
+}
