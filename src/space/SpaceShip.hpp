@@ -69,10 +69,13 @@ namespace tbd {
          * The missionmanager of the spaceship
          */
         MissionManager* missionmanager;
+        /**
+         * The weapons installed in the spaceship
+         */
+        std::vector<Weapon*> weapons;
     private:
         const double period=0.2;
         double waitingtime=0.0;
-        std::vector<Weapon*> weapons;
     };
 }
 
