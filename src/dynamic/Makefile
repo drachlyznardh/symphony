@@ -19,10 +19,10 @@ lexer.o: $(LEXER)
 
 parse.o: $(PARSER)
 
-$(LEXER): scanner.lex
+$(LEXER): scanner.lex DynamicLexer.h DynamicLexer.ih
 	flexc++ $<
 
-$(PARSER): grammar.yy
+$(PARSER): grammar.yy DynamicParser.h DynamicParser.ih
 	bisonc++ $<
 
 clean: parser.clean scanner.clean
