@@ -5,6 +5,7 @@ namespace tbd {
     class MissionManager;
     class Layer; 
     class Cursor;
+    class HPMonitor;
     /**
      * GUI of the shooter phase
      */
@@ -29,6 +30,7 @@ namespace tbd {
         MissionManager* missionmanager;
         Layer* layer;
         Cursor* cursor;
+        HPMonitor* label;
     };
 }
 #endif	/* GUI_HPP */

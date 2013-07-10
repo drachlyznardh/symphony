@@ -47,7 +47,8 @@ void StraightCannon::handleCollision(HitWindow* window, CollisionEntity* other) 
     Missile* m;
     if (m = dynamic_cast<Missile*> (other)) {
         if (!m->friendly)
-            HP--;
+	    if(HP>0)
+	            HP--;
     }    
 }
 

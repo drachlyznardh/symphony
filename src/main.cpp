@@ -36,6 +36,8 @@ SpaceShip* buildSpaceShip(){
 int main() {
     PolycodeView* view = new PolycodeView("Pew Pew!");
     Core* core = new POLYCODE_CORE(view, 1024, 768, false, true, 0, 0, 90);
+    CoreServices::getInstance()->getFontManager()->registerFont("mono", "resources/mono.otf");
+
     //core->enableMouse(false);
     double period=2.0;
     SpaceShip* space=buildSpaceShip();
