@@ -1,6 +1,6 @@
 
-LEXER  := ConsoleLexer.cpp
-PARSER := ConsoleParser.cpp
+LEXER  := DynamicLexer.cpp
+PARSER := DynamicParser.cpp
 APP    := parser
 
 SRCS   := main.cpp $(LEXER) $(PARSER)
@@ -8,7 +8,7 @@ OBJS   := $(SRCS:.cpp=.o)
 
 CXXFLAGS += -std=c++11 -Wall -pedantic
 
-all: $(LEXER) $(PARSER)
+all: $(APP) $(LEXER) $(PARSER)
 
 $(APP): $(OBJS)
 	$(CXX) $^ -o $@
@@ -29,10 +29,10 @@ clean: parser.clean scanner.clean
 	$(RM) *.o $(APP)
 
 parser.clean:
-	$(RM) $(PARSER) ConsoleParserbase.h
+	$(RM) $(PARSER) DynamicParserbase.h
 
 scanner.clean:
-	$(RM) $(LEXER) ConsoleLexerbase.h
+	$(RM) $(LEXER) DynamicLexerbase.h
 
 .PHONY: clean parser.clean scanner.clean
 

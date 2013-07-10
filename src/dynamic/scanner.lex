@@ -1,6 +1,6 @@
 %namespace tbd
-%class-name ConsoleLexer
-%lex-source "ConsoleLexer.cpp"
+%class-name DynamicLexer
+%lex-source "DynamicLexer.cpp"
 
 %x TEXT COMMENT MULTICOMMENT
 
@@ -8,29 +8,29 @@
 
 [[:space:]]+ // ignoring whitespaces
 
-"regene"	return ConsoleParser::REGENE;
-"summon"	return ConsoleParser::SUMMON;
-"remove"	return ConsoleParser::REMOVE;
-"ship"		return ConsoleParser::SHIP;
-"all"		return ConsoleParser::ALL;
-"load"		return ConsoleParser::LOAD;
-"clear"		return ConsoleParser::CLEAR;
+"regene"	return DynamicParser::REGENE;
+"summon"	return DynamicParser::SUMMON;
+"remove"	return DynamicParser::REMOVE;
+"ship"		return DynamicParser::SHIP;
+"all"		return DynamicParser::ALL;
+"load"		return DynamicParser::LOAD;
+"clear"		return DynamicParser::CLEAR;
 
-"="	return ConsoleParser::EQUAL;
-";"	return ConsoleParser::SEMICOLON;
-"#" return ConsoleParser::SHARP;
+"="	return DynamicParser::EQUAL;
+";"	return DynamicParser::SEMICOLON;
+"#" return DynamicParser::SHARP;
 
-"{"	return ConsoleParser::LBRACE;
-"}" return ConsoleParser::RBRACE;
+"{"	return DynamicParser::LBRACE;
+"}" return DynamicParser::RBRACE;
 
-"if"   return ConsoleParser::IF;
-"else" return ConsoleParser::ELSE;
+"if"   return DynamicParser::IF;
+"else" return DynamicParser::ELSE;
 
-[0-9]+								return ConsoleParser::INT;
-[[:alpha:]][[:alpha:][:digit:]]*	return ConsoleParser::ID;
+[0-9]+								return DynamicParser::INT;
+[[:alpha:]][[:alpha:][:digit:]]*	return DynamicParser::ID;
 
 "\""		{ more(); begin(StartCondition__::TEXT); }
-<TEXT>"\""	{ begin(StartCondition__::INITIAL); return ConsoleParser::TEXT; }
+<TEXT>"\""	{ begin(StartCondition__::INITIAL); return DynamicParser::TEXT; }
 <TEXT>.		{ more(); }
 
 "//" 				{ begin(StartCondition__::COMMENT); }
@@ -41,5 +41,5 @@
 <MULTICOMMENT>"*/"	{ begin(StartCondition__::INITIAL); }
 <MULTICOMMENT>.		{ }
 
-. return ConsoleParser::CHAR;
+. return DynamicParser::CHAR;
 

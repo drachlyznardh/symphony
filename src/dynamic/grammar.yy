@@ -1,8 +1,8 @@
 %namespace tbd
-%class-name ConsoleParser
-%parsefun-source ConsoleParser.cpp
+%class-name DynamicParser
+%parsefun-source DynamicParser.cpp
 
-%scanner ConsoleLexer.h
+%scanner DynamicLexer.h
 %scanner-token-function lexer.lex()
 
 %token EQUAL SEMICOLON SHARP
@@ -27,15 +27,15 @@ CommandList:
 	Command { this->recordCommand(); }
 ;
 Command:
-	REGENE target { this->recordType(ConsoleCommandType::REGENE); }
+	REGENE target { this->recordType(DynamicCommandType::REGENE); }
 |
-	SUMMON target { this->recordType(ConsoleCommandType::SUMMON); }
+	SUMMON target { this->recordType(DynamicCommandType::SUMMON); }
 |
-	REMOVE target { this->recordType(ConsoleCommandType::REMOVE); }
+	REMOVE target { this->recordType(DynamicCommandType::REMOVE); }
 |
-	LOAD text { this->recordType(ConsoleCommandType::LOAD); }
+	LOAD text { this->recordType(DynamicCommandType::LOAD); }
 |
-	CLEAR { this->recordType(ConsoleCommandType::CLEAR); }
+	CLEAR { this->recordType(DynamicCommandType::CLEAR); }
 ;
 
 target:
